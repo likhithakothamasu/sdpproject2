@@ -1,0 +1,37 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div  align="center" class="col">
+        <br> <br>
+      <h1>Welcome to Likhitha's Travel Tourism and Management</h1>
+    <form method ="post" action="{% url 'url_shortener' %}">
+        {% csrf_token %}
+        <br>
+        <h4>
+           <form method="post" action="{% url 'url_shortener' %}">
+    {% csrf_token %}
+    <label for="long_url">Enter Long URL:</label>
+    <input type="url" name="long_url" required>
+    <button type="submit">Shorten URL</button>
+</form>
+        </h4>
+    </form>
+    </div>
+      <div  align="center" class="col">
+        <h1>Top Vacation Destinations</h1>
+          <br><br>
+          <h1>
+              <p>Your shortened URL is: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+
+          </h1>
+      </div></div>
+</div>
+{% endblock %}
+</html>
